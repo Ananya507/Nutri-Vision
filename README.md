@@ -1,189 +1,113 @@
-# Nutri-Vision
-# 🍽️ Nutri-Vision: AI-Powered Recipe Generator & Nutrition Analyzer
+# 🍽️ AI Recipe Generator & Nutrition Analyzer
 
-## Overview
+An AI-powered food recognition and nutrition analysis application that identifies food items from uploaded images, retrieves matching recipes, provides nutritional information, and suggests healthier food alternatives.
 
-NutriGenAI is an AI-powered food recognition and nutrition analysis system that identifies food items from uploaded images, retrieves recipes, analyzes nutritional content using the USDA FoodData Central API, and recommends healthier alternatives.
+## 📌 Overview
 
-The project combines Computer Vision, Deep Learning, API Integration, and Data Analytics to provide users with intelligent food insights and meal recommendations.
+The AI Recipe Generator & Nutrition Analyzer combines computer vision, machine learning, and external API integration to make food exploration easier.
 
----
+Users can upload an image of a food item, and the application uses a pretrained image classification model to identify the dish. Based on the prediction, it searches a recipe dataset, retrieves nutritional information from the USDA FoodData Central API, and recommends a healthier alternative.
 
-## Features
+## ✨ Features
 
-* 📸 Food Image Recognition using Vision Transformer (ViT) trained on Food-101
-* 🍳 Automatic Recipe Retrieval
-* 🥗 Nutrition Analysis using USDA FoodData Central API
-* 💡 Healthier Food Alternative Recommendations
-* 📊 Interactive Web Interface built with Streamlit
-* 🔍 Top Prediction Confidence Scores
+- **Food Image Recognition:** Identifies food items from uploaded images using a pretrained Vision Transformer (ViT)-based image classification model.
+- **Top-5 Predictions:** Displays the five most probable food classifications with their prediction scores.
+- **Recipe Retrieval:** Searches a recipe dataset to retrieve matching recipes, ingredients, and cooking instructions.
+- **Nutrition Analysis:** Retrieves calorie, protein, fat, and carbohydrate information through the USDA FoodData Central API.
+- **Healthier Alternatives:** Suggests alternative food options using a rule-based recommendation system.
+- **Interactive Interface:** Provides an easy-to-use interface built with Streamlit.
 
----
+## 🛠️ Tech Stack
 
-## Tech Stack
+| Technology | Purpose |
+|---|---|
+| Python | Core programming language |
+| Streamlit | Interactive web application |
+| Hugging Face Transformers | Pretrained image classification pipeline |
+| Vision Transformer (ViT) | Food image classification |
+| Pandas | Dataset loading and processing |
+| Pillow (PIL) | Image processing |
+| Requests | REST API integration |
+| USDA FoodData Central API | Nutritional information |
+| CSV Dataset | Recipe storage and retrieval |
 
-### Frontend
+## ⚙️ How It Works
 
-* Streamlit
+1. The user uploads a food image.
+2. The image is processed and passed to the pretrained food classification model.
+3. The model predicts the food category and returns the top five predictions.
+4. The application searches the recipe dataset for a matching dish.
+5. The USDA API is queried to retrieve nutritional information.
+6. A rule-based recommendation function suggests a healthier alternative.
+7. Results are displayed through the Streamlit interface.
 
-### Machine Learning
-
-* Hugging Face Transformers
-* Vision Transformer (ViT)
-* Food-101 Dataset
-
-### Backend
-
-* Python
-
-### Data Processing
-
-* Pandas
-* Pillow
-
-### API Integration
-
-* USDA FoodData Central API
-
----
-
-## Project Architecture
+## 📂 Project Structure
 
 ```text
-User Uploads Food Image
-            │
-            ▼
-Food Classification Model
-            │
-            ▼
-Predicted Food Item
-            │
-            ├────────► Recipe Retrieval
-            │
-            ├────────► Nutrition Analysis
-            │
-            ▼
-Healthier Alternative Recommendation
-            │
-            ▼
-Results Displayed in Streamlit
+AI-Recipe-Analyzer/
+│
+├── app.py
+├── requirements.txt
+├── .env
+├── .gitignore
+├── README.md
+│
+└── Food Ingredients and Recipe Dataset with Image Name Mapping.csv
 ```
 
----
+## 🚀 Installation & Setup
 
-## Dataset
-
-The project utilizes a recipe dataset containing:
-
-* Food Title
-* Ingredients
-* Cooking Instructions
-* Image Mapping Information
-
-Dataset Columns:
-
-```text
-Title
-Cleaned_Ingredients
-Instructions
-Image_Name
-```
-
----
-
-## Installation
-
-### Clone Repository
+### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/Nutri-Vision.git
-cd Nutri-Vision
+git clone <your-repository-url>
+cd AI-Recipe-Analyzer
 ```
 
-### Install Dependencies
+### 2. Create a virtual environment
+
+```bash
+python -m venv venv
+```
+
+Activate it:
+
+Windows:
+```bash
+venv\Scripts\activate
+```
+
+### 3. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Configure USDA API Key
+### 4. Configure the USDA API key
 
-Open `app.py` and replace:
+Create a `.env` file or configure an environment variable:
 
-```python
-USDA_API_KEY = "YOUR_USDA_API_KEY"
+```text
+USDA_API_KEY=your_api_key_here
 ```
 
-with your actual API key.
+Read the key securely in Python using an environment variable.
 
----
-
-## Run Application
+### 5. Run the application
 
 ```bash
 streamlit run app.py
 ```
 
----
+## 🔮 Future Improvements
 
-## Usage
+- Improve recipe matching using semantic search.
+- Add serving-size-based nutritional calculations.
+- Introduce personalized dietary preferences.
+- Generate customized recipes based on available ingredients.
+- Add user accounts and recipe bookmarking.
+- Deploy the application for public access.
 
-1. Launch the Streamlit application.
-2. Upload a food image.
-3. Wait for food classification.
-4. View:
+## 👩‍💻 Author
 
-   * Predicted food item
-   * Recipe details
-   * Ingredients
-   * Cooking instructions
-   * Nutritional information
-   * Healthier alternatives
-
----
-
-## Results
-
-The system provides:
-
-* Food Identification
-* Recipe Recommendation
-* Calorie Estimation
-* Protein Analysis
-* Fat Analysis
-* Carbohydrate Analysis
-* Healthy Food Suggestions
-
----
-
-## Future Enhancements
-
-* Personalized Diet Planning
-* BMI-Based Recommendations
-* Multi-Food Detection
-* Calorie Tracking Dashboard
-* Meal Planning System
-* Voice-Based Food Search
-* LLM-Based Recipe Generation
-* Nutritional Deficiency Detection
-
----
-
-## Skills Demonstrated
-
-* Machine Learning
-* Deep Learning
-* Computer Vision
-* Transfer Learning
-* API Integration
-* Data Analysis
-* Streamlit Deployment
-* Python Development
-
----
-
-## Author
-
-Ananya Majumdar
-
-Final Year B.Tech Student | Artificial Intelligence & Machine Learning Enthusiast
+Developed as a machine learning and Python application integrating computer vision, dataset processing, and external nutritional data retrieval. & Machine Learning Enthusiast
